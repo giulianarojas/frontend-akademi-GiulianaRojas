@@ -1,0 +1,11 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop HP",
+      "price": 800,
+      "stock": 5,
+      "category": "computación"
+    }
+  ]
+}
