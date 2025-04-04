@@ -1,15 +1,18 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-
+import Navbar from './components/NavBar';
+import ProductList from './components/ProductList';
 
 const App = () => {
     return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-        </Routes>
-    )
-
+        <>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<ProductList />} />
+                <Route path="/agregar-producto" element={<h2 className="container mt-4">Pag para agregar producto (en proceso)</h2>} />
+            </Routes>
+        </>
+    );
 };
 
 export default App;
