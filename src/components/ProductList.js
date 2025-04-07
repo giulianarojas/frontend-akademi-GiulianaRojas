@@ -1,19 +1,28 @@
 import React, { useEffect, useState } from 'react'; // importo librerias necesarias
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts, deleteProduct } from '../store/actions/productActions';
+import { fetchProducts, deleteProduct, setCurrentPage } from '../store/actions/productActions';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+
 
 const ProductList = () => { // componente que muestra la lista de productos
   const dispatch = useDispatch(); // hook para disparar acciones de Redux
   const products = useSelector(state => state.products.products) || []; // obtengo los productos
   const [productIdToDelete, setProductIdToDelete] = useState(null); //guardaa el id del producto a eliminar
   const navigate = useNavigate();
+  const currentPage = useSelector(state => state.products.currentPage);
+  const itemsPerPage = 6;
+  
+
+
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
+
 
   const handleConfirmDelete = () => { // manejo la confirmación de la eliminacion de un producto
     if (productIdToDelete !== null) {
@@ -22,14 +31,25 @@ const ProductList = () => { // componente que muestra la lista de productos
     }
   };
 
+
+  // calculo para paginación
+  const indexOfLastProduct = currentPage * itemsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+ 
+
+  //cantidad total de paginas
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+
   return (  //mostrar productos
     <div className="container">
       <h2 className="mb-4">Lista de Productos</h2>
       {products.length === 0 ? (
-        <p>No hay productos disponibles</p>
-      ) : (
+        <p>No hay productos disponibles</p>) : (
+      
         <div className="row">
-          {products.map(product => (
+          {currentProducts.map(product => (
             <div key={product.id} className="col-md-4 mb-4">
               <div className="card">
                 <div className="card-body">
@@ -40,8 +60,8 @@ const ProductList = () => { // componente que muestra la lista de productos
 
                   <Link to={`/products/${product.id}`} className="btn btn-info"> Ver Detalles</Link>
 
-                  
 
+                  {/* botones eliminar y editar */}
                   <button
                     className='btn btn-danger mt-2'
                     data-bs-toggle="modal"
@@ -60,7 +80,7 @@ const ProductList = () => { // componente que muestra la lista de productos
           ))}
 
          
-         
+          {/* confirmacion de eliminar producto */}
           <div className="modal fade" id="confirmDeleteModal" tabIndex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
@@ -69,7 +89,7 @@ const ProductList = () => { // componente que muestra la lista de productos
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div className="modal-body">
-                  ¿Estas segura que quieres eliminar este producto?
+                  ¿Segura que quieres eliminar este producto?
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -85,6 +105,32 @@ const ProductList = () => { // componente que muestra la lista de productos
               </div>
             </div>
           </div>
+         
+         {/* paginacion */}
+          <div className="d-flex justify-content-center mt-4">
+          <nav>
+          <ul className="pagination">
+          <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+            <button className="page-link" onClick={() => dispatch(setCurrentPage(currentPage - 1))}>Anterior</button>
+          </li>
+
+          {[...Array(totalPages)].map((_, index) => (
+            <li
+              key={index}
+              className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}
+            >
+              <button className="page-link" onClick={() => dispatch(setCurrentPage(index + 1))}>
+                {index + 1}
+              </button>
+            </li>
+          ))}
+
+          <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+            <button className="page-link" onClick={() => dispatch(setCurrentPage(currentPage + 1))}>Siguiente</button>
+          </li>
+        </ul>
+          </nav>
+        </div>
 
         </div>
       )}

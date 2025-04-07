@@ -1,5 +1,7 @@
 const initialState = {
   products: [],
+  currentPage: 1,
+  itemsPerPage: 5,
 };
 
 // reducer que maneja las acciones relacionadas con productos
@@ -22,6 +24,12 @@ const productReducer = (state = initialState, action) => {
     case 'EDIT_PRODUCT':
       return {
         ...state, products: state.products.map(product => product.id === action.payload.id ? action.payload : product),
+    };
+
+    case 'SET_CURRENT_PAGE':
+    return {
+      ...state,
+      currentPage: action.payload
     };
     default:
       return state;

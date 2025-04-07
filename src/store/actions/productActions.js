@@ -51,5 +51,11 @@ export const AddProduct = (product) => {
     }
   };
   
+  //paginacion
+
+  export const setCurrentPage = (page) => ({
+    type: 'SET_CURRENT_PAGE',
+    payload: page
+  });
   
   

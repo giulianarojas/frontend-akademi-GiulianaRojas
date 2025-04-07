@@ -13,8 +13,7 @@
       "category": "celular",
       "price": 999.99,
       "stock": 15,
-      "description": "Latest iPhone model with A16 Bionic chip",
-      "image_url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-1inch-deeppurple?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1663703841896"
+      "description": "Latest iPhone model with A16 Bionic chip"
     },
     {
       "id": "4",
@@ -22,8 +21,7 @@
       "category": "laptop",
       "price": 1499.99,
       "stock": 8,
-      "description": "15-inch premium Windows laptop",
-      "image_url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-15-9520/media-gallery/black/laptop-xps-9520-t-black-gallery-4.psd?fmt=png-alpha&pscan=auto&scl=1&wid=640&hei=595&qlt=100,1&resMode=sharp2&size=640,595"
+      "description": "15-inch premium Windows laptop"
     },
     {
       "id": "714a",
@@ -38,6 +36,62 @@
       "price": 122,
       "stock": 333,
       "category": "celular"
+    },
+    {
+      "id": "5",
+      "name": "Samsung Galaxy S23",
+      "category": "celular",
+      "price": 849.99,
+      "stock": 20,
+      "description": "High-end Android smartphone from Samsung"
+    },
+    {
+      "id": "6",
+      "name": "Lenovo ThinkPad X1",
+      "category": "computación",
+      "price": 1399.99,
+      "stock": 10,
+      "description": "Business-class laptop with excellent keyboard"
+    },
+    {
+      "id": "7",
+      "name": "Smart TV LG 50\"",
+      "category": "electrodoméstico",
+      "price": 599.99,
+      "stock": 12,
+      "description": "Ultra HD Smart TV with webOS"
+    },
+    {
+      "id": "8",
+      "name": "Auriculares Sony WH-1000XM4",
+      "category": "audio",
+      "price": 349.99,
+      "stock": 25,
+      "description": "Auriculares con cancelación de ruido líderes en el mercado"
+    },
+    {
+      "id": "9",
+      "name": "Mouse Logitech MX Master 3",
+      "category": "accesorio",
+      "price": 99.99,
+      "stock": 40,
+      "description": "Mouse ergonómico ideal para productividad"
+    },
+    {
+      "id": "10",
+      "name": "Tablet Samsung Galaxy Tab S8",
+      "category": "tablet",
+      "price": 649.99,
+      "stock": 18,
+      "description": "Tablet Android con pantalla AMOLED y S-Pen"
+    },
+    {
+      "id": "11",
+      "name": "Impresora HP DeskJet 2720",
+      "category": "impresora",
+      "price": 59.99,
+      "stock": 30,
+      "description": "Impresora multifunción económica con WiFi"
     }
   ]
 }
