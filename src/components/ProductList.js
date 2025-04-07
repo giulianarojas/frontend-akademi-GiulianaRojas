@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'; // importo librerias necesarias
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts, deleteProduct } from '../store/actions/productActions';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const ProductList = () => { // componente que muestra la lista de productos
   const dispatch = useDispatch(); // hook para disparar acciones de Redux
   const products = useSelector(state => state.products.products) || []; // obtengo los productos
   const [productIdToDelete, setProductIdToDelete] = useState(null); //guardaa el id del producto a eliminar
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -35,6 +38,8 @@ const ProductList = () => { // componente que muestra la lista de productos
                   <p className="card-text">Stock: {product.stock}</p>
                   <p className="card-text">Categoría: {product.category}</p>
 
+                  <Link to={`/products/${product.id}`} className="btn btn-info"> Ver Detalles</Link>
+
                   
 
                   <button
@@ -45,6 +50,10 @@ const ProductList = () => { // componente que muestra la lista de productos
                   >
                     Eliminar
                   </button>
+
+                  <button className="btn btn-warning mt-2 ms-2" onClick={() => navigate(`/edit/${product.id}`)}>
+                     Editar
+                    </button>
                 </div>
               </div>
             </div>

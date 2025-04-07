@@ -16,7 +16,13 @@ const productReducer = (state = initialState, action) => {
         products: state.products.filter(p => p.id !== action.payload),  // filtrotodos los productos excepto el que tenga el id igual al que quiero eliminar
       };
       case 'ADD_PRODUCT':  // accion para agregar un nuevo producto al estado
-      return { ...state, products: [...state.products, action.payload] };
+      return { ...state, products: [...state.products, action.payload] 
+      };
+
+    case 'EDIT_PRODUCT':
+      return {
+        ...state, products: state.products.map(product => product.id === action.payload.id ? action.payload : product),
+    };
     default:
       return state;
   }
