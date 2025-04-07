@@ -1,17 +1,18 @@
 import axios from 'axios';
+import { FETCH_PRODUCTS } from './types';
 
-export const setProducts = (products) => ({
-    type: 'SET_PRODUCTS',
-    payload: products
-});
 
+//cargar productos desde el json server
 export const fetchProducts = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get('http://localhost:3000/products');
-            dispatch(setProducts(response.data));
+            const {data} = await axios.get('http://localhost:3000/products');
+            dispatch({type: FETCH_PRODUCTS, payload: data});
         } catch (error) {
             console.error('Error:', error);
         }
     };
 };
+
+
+//agregar producto

@@ -4,7 +4,7 @@ import { fetchProducts } from '../store/actions/productActions';
 
 const ProductList = () => {
   const dispatch = useDispatch();
-  const products = useSelector(state => state) || [];
+  const products = useSelector(state => state.products.products) || [];
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -12,7 +12,10 @@ const ProductList = () => {
 
   return (
     <div className="container">
-      <h2 className="mb-4">Lista de Productos</h2>
+    <h2 className="mb-4">Lista de Productos</h2>
+    {products.length === 0 ? (
+      <p>No hay productos disponibles</p> 
+    ) : (
       <div className="row">
         {products.map(product => (
           <div key={product.id} className="col-md-4 mb-4">
@@ -27,7 +30,8 @@ const ProductList = () => {
           </div>
         ))}
       </div>
-    </div>
+    )}
+  </div>
   );
 };
 

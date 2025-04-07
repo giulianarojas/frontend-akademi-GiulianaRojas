@@ -1,10 +1,18 @@
-const initialState = [];
-
-export default function productReducer(state = initialState, action) {
-    switch (action.type) {
-        case 'SET_PRODUCTS':
-            return action.payload;
-        default:
-            return state;
-    }
+const initialState = {
+    products: []
 }
+
+
+const productReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'FETCH_PRODUCTS':
+      return {
+        ...state,
+        products: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export default productReducer;

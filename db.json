@@ -6,6 +6,33 @@
       "price": 800,
       "stock": 5,
       "category": "computación"
+    },
+    {
+      "id": "2",
+      "name": "iPhone 14 Pro",
+      "category": "celular",
+      "price": 999.99,
+      "stock": 15,
+      "description": "Latest iPhone model with A16 Bionic chip",
+      "image_url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-1inch-deeppurple?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1663703841896"
+    },
+    {
+      "id": "4",
+      "name": "Dell XPS 15",
+      "category": "laptop",
+      "price": 1499.99,
+      "stock": 8,
+      "description": "15-inch premium Windows laptop",
+      "image_url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-15-9520/media-gallery/black/laptop-xps-9520-t-black-gallery-4.psd?fmt=png-alpha&pscan=auto&scl=1&wid=640&hei=595&qlt=100,1&resMode=sharp2&size=640,595"
+    },
+    {
+      "id": "5",
+      "name": "Samsung Galaxy S23",
+      "category": "celular",
+      "price": 899.99,
+      "stock": 12,
+      "description": "Último modelo de Samsung con cámara de 200MP",
+      "image_url": "https://images.samsung.com/is/image/samsung/p6pim/ar/2302/gallery/ar-galaxy-s23-s911-sm-s911bzkcaro-534848031?$650_519_PNG$"
     }
   ]
 }

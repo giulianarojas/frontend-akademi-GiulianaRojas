@@ -1,17 +1,26 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store'
 import Navbar from './components/NavBar';
 import ProductList from './components/ProductList';
+import AddProduct from './components/AddProduct';
 
 const App = () => {
     return (
-        <>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<ProductList />} />
-                <Route path="/agregar-producto" element={<h2 className="container mt-4">Pag para agregar producto (en proceso)</h2>} />
-            </Routes>
-        </>
+       <Provider store={store}>
+        <Router>
+            <div className='App'>
+                <Navbar />
+                <Routes>
+                    <Route path='/' element={<ProductList />} />
+                    <Route path='/add-product' element={<AddProduct />} />
+                </Routes>
+
+            </div>
+        </Router>
+
+       </Provider>
     );
 };
 
