@@ -1,12 +1,12 @@
-import axios from 'axios';
-import { FETCH_PRODUCTS } from './types';
+import api from '../../api/api';
+import { FETCH_PRODUCTS, ADD_PRODUCT } from './types';
 
 
 //cargar productos desde el json server
 export const fetchProducts = () => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get('http://localhost:3000/products');
+            const {data} = await api.get('/products');
             dispatch({type: FETCH_PRODUCTS, payload: data});
         } catch (error) {
             console.error('Error:', error);
@@ -14,5 +14,26 @@ export const fetchProducts = () => {
     };
 };
 
+//eliminar producto
+export const deleteProduct = (id) => {
+    return async (dispatch) => {
+      try {
+        await api.delete(`/products/${id}`);
+        dispatch({ type: 'DELETE_PRODUCT', payload: id });
+      } catch (error) {
+        console.error('Error al eliminar producto:', error);
+      }
+    };
+  };
 
-//agregar producto
+   //agregar productos
+  export const AddProduct = (product) => {
+    return async (dispatch) => {
+      try {
+        const { data } = await api.post('/products', product);
+        dispatch({ type: ADD_PRODUCT, payload: data });
+      } catch (error) {
+        console.error('Error al agregar producto:', error);
+      }
+    };
+  };

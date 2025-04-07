@@ -26,13 +26,18 @@
       "image_url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-15-9520/media-gallery/black/laptop-xps-9520-t-black-gallery-4.psd?fmt=png-alpha&pscan=auto&scl=1&wid=640&hei=595&qlt=100,1&resMode=sharp2&size=640,595"
     },
     {
-      "id": "5",
-      "name": "Samsung Galaxy S23",
-      "category": "celular",
-      "price": 899.99,
-      "stock": 12,
-      "description": "Último modelo de Samsung con cámara de 200MP",
-      "image_url": "https://images.samsung.com/is/image/samsung/p6pim/ar/2302/gallery/ar-galaxy-s23-s911-sm-s911bzkcaro-534848031?$650_519_PNG$"
+      "id": "714a",
+      "name": "aaaaaaa",
+      "price": 222222,
+      "stock": 33,
+      "category": "celular"
+    },
+    {
+      "id": "7fcf",
+      "name": "ddd",
+      "price": 122,
+      "stock": 333,
+      "category": "celular"
     }
   ]
 }

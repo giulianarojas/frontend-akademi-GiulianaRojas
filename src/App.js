@@ -1,10 +1,15 @@
+//importo dependencias 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store/store'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; //componente para manejar rutas
+import { Provider } from 'react-redux'; //provider para que toda la app tenga acceso al store
+import store from './store/store' 
+
+//los componentes que vamos a usar en las rutas
 import Navbar from './components/NavBar';
 import ProductList from './components/ProductList';
-import AddProduct from './components/AddProduct';
+import AddProductForm from './components/AddProduct';
+
+
 
 const App = () => {
     return (
@@ -14,7 +19,7 @@ const App = () => {
                 <Navbar />
                 <Routes>
                     <Route path='/' element={<ProductList />} />
-                    <Route path='/add-product' element={<AddProduct />} />
+                    <Route path='/add-product' element={<AddProductForm />} />
                 </Routes>
 
             </div>
