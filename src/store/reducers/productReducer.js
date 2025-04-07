@@ -2,6 +2,7 @@ const initialState = {
   products: [],
   currentPage: 1,
   itemsPerPage: 5,
+  categoryFilter: 'Todos',
 };
 
 // reducer que maneja las acciones relacionadas con productos
@@ -31,6 +32,12 @@ const productReducer = (state = initialState, action) => {
       ...state,
       currentPage: action.payload
     };
+    case 'SET_CATEGORY_FILTER':
+      return {
+        ...state,
+        categoryFilter: action.payload,
+        currentPage:1,
+      }
     default:
       return state;
   }

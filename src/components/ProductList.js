@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'; // importo librerias necesarias
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts, deleteProduct, setCurrentPage } from '../store/actions/productActions';
+import { fetchProducts, deleteProduct, setCurrentPage, setCategoryFilter } from '../store/actions/productActions';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -14,8 +14,8 @@ const ProductList = () => { // componente que muestra la lista de productos
   const navigate = useNavigate();
   const currentPage = useSelector(state => state.products.currentPage);
   const itemsPerPage = 6;
+  const categoryFilter = useSelector(state => state.products.categoryFilter);
   
-
 
 
   useEffect(() => {
@@ -32,19 +32,40 @@ const ProductList = () => { // componente que muestra la lista de productos
   };
 
 
+  const filteredProducts = categoryFilter === 'Todos'
+  ? products
+  : products.filter(p => p.category === categoryFilter);
+
+
   // calculo para paginación
   const indexOfLastProduct = currentPage * itemsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct); //filtrado
  
 
   //cantidad total de paginas
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
 
-  return (  //mostrar productos
+  return (  //mostrar productos y filtrado
     <div className="container">
       <h2 className="mb-4">Lista de Productos</h2>
+
+      <div className="mb-3">
+      <label htmlFor="categoryFilter" className="form-label">Filtrar por categoría:</label>
+      <select
+        id="categoryFilter"
+        className="form-select"
+        value={categoryFilter}
+        onChange={(e) => dispatch(setCategoryFilter(e.target.value))}
+      >
+        <option value="Todos">Todos</option>
+        {[...new Set(products.map(p => p.category))].map(category => (
+          <option key={category} value={category}>{category}</option>
+        ))}
+        </select>
+      </div>
+
       {products.length === 0 ? (
         <p>No hay productos disponibles</p>) : (
       
