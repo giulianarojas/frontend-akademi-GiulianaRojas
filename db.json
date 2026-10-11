@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Laptop HP",
-      "price": 800,
-      "stock": 5,
-      "category": "computación"
-    },
-    {
       "id": "2",
       "name": "iPhone 14 Pro",
       "category": "celular",
@@ -16,25 +9,10 @@
       "description": "Latest iPhone model with A16 Bionic chip"
     },
     {
-      "id": "4",
-      "name": "Dell XPS 15",
-      "category": "laptop",
-      "price": 1499.99,
-      "stock": 8,
-      "description": "15-inch premium Windows laptop"
-    },
-    {
       "id": "714a",
-      "name": "aaaaaaa",
+      "name": "Samsung S26",
       "price": 222222,
       "stock": 33,
-      "category": "celular"
-    },
-    {
-      "id": "7fcf",
-      "name": "ddd",
-      "price": 122,
-      "stock": 333,
       "category": "celular"
     },
     {
@@ -54,22 +32,6 @@
       "description": "Business-class laptop with excellent keyboard"
     },
     {
-      "id": "7",
-      "name": "Smart TV LG 50\"",
-      "category": "electrodoméstico",
-      "price": 599.99,
-      "stock": 12,
-      "description": "Ultra HD Smart TV with webOS"
-    },
-    {
-      "id": "8",
-      "name": "Auriculares Sony WH-1000XM4",
-      "category": "audio",
-      "price": 349.99,
-      "stock": 25,
-      "description": "Auriculares con cancelación de ruido líderes en el mercado"
-    },
-    {
       "id": "9",
       "name": "Mouse Logitech MX Master 3",
       "category": "accesorio",
@@ -80,18 +42,34 @@
     {
       "id": "10",
       "name": "Tablet Samsung Galaxy Tab S8",
-      "category": "tablet",
-      "price": 649.99,
+      "price": 500000,
       "stock": 18,
+      "category": "tablet",
       "description": "Tablet Android con pantalla AMOLED y S-Pen"
     },
     {
-      "id": "11",
-      "name": "Impresora HP DeskJet 2720",
-      "category": "impresora",
-      "price": 59.99,
-      "stock": 30,
-      "description": "Impresora multifunción económica con WiFi"
+      "id": "1b3a",
+      "name": "Moto Edge 50",
+      "price": 500000,
+      "stock": 3,
+      "category": "celular",
+      "description": "Celular motorola"
+    },
+    {
+      "id": "800b",
+      "name": "Tablet Samsung Galaxy Tab S8",
+      "price": 700000,
+      "stock": 2,
+      "category": "Tablet",
+      "description": "Tablet Samsung"
+    },
+    {
+      "id": "9f8a",
+      "name": "TV TCL",
+      "price": 600000,
+      "stock": 2,
+      "category": "TV",
+      "description": "Televisor"
     }
   ]
 }

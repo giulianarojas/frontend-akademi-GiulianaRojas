@@ -3,6 +3,8 @@ const initialState = {
   currentPage: 1,
   itemsPerPage: 5,
   categoryFilter: 'Todos',
+  sortBy: 'name',
+  sortOrder: 'asc',
 };
 
 // reducer que maneja las acciones relacionadas con productos
@@ -26,7 +28,6 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state, products: state.products.map(product => product.id === action.payload.id ? action.payload : product),
     };
-
     case 'SET_CURRENT_PAGE':
     return {
       ...state,
@@ -37,6 +38,16 @@ const productReducer = (state = initialState, action) => {
         ...state,
         categoryFilter: action.payload,
         currentPage:1,
+      }
+    case 'SET_SORT_BY':
+      return {
+        ...state,
+        sortBy: action.payload,
+      }
+    case 'SET_SORT_ORDER':
+      return {
+        ...state,
+        sortOrder: action.payload,
       }
     default:
       return state;

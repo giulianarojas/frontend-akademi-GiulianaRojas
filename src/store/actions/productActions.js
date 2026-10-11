@@ -1,5 +1,5 @@
 import api from '../../api/api';
-import { FETCH_PRODUCTS, ADD_PRODUCT, EDIT_PRODUCT, DELETE_PRODUCT  } from './types';
+import { FETCH_PRODUCTS, ADD_PRODUCT, EDIT_PRODUCT, DELETE_PRODUCT, SET_SORT_BY, SET_SORT_ORDER  } from './types';
 
 
 //cargar productos desde el json server
@@ -66,5 +66,13 @@ export const AddProduct = (product) => {
     payload: category,
   });
 
-  
-  
+  //ordenamiento
+  export const setSortBy = (sortBy) => ({
+    type: SET_SORT_BY,
+    payload: sortBy,
+  });
+
+  export const setSortOrder = (sortOrder) => ({
+    type: SET_SORT_ORDER,
+    payload: sortOrder,
+  });

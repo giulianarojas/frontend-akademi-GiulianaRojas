@@ -8,7 +8,6 @@ import store from './store/store'
 import Navbar from './components/NavBar';
 import ProductList from './components/ProductList';
 import AddProductForm from './components/AddProduct';
-import EditProduct from './components/EditProduct';
 import ProductDetail from './components/ProductDetail';
 
 
@@ -22,9 +21,7 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={<ProductList />} />
                     <Route path='/add-product' element={<AddProductForm />} />
-                    <Route path="/edit/:id" element={<EditProduct />} />
                     <Route path="/products/:id" element={<ProductDetail />} />
-
                 </Routes>
 
             </div>

@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Frontend Akademi - Gestión de Inventario
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación en React con Redux Clásico para gestionar un inventario de productos tecnológicos.
 
-## Available Scripts
+## Tecnologías Utilizadas
 
-In the project directory, you can run:
+- React.js
+- Redux Clásico
+- React Router
+- Redux Thunk
+- JSON Server
+- Bootstrap 5
+- Axios
 
-### `npm start`
+## Características
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ CRUD completo de productos (Alta, Baja, Modificación)
+- ✅ Paginación (5 productos por página)
+- ✅ Filtrado por categoría
+- ✅ Búsqueda por nombre o categoría
+- ✅ Ordenamiento por precio y nombre (ascendente/descendente)
+- ✅ Vista de detalle de producto con edición en línea
+- ✅ Validaciones de formularios (precio > 0, stock >= 0)
+- ✅ JSON Server como API REST simulada
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+1. Clonar el repositorio
+2. Instalar dependencias:
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Ejecución
 
-### `npm run build`
+Para ejecutar la aplicación, necesitas iniciar tanto el servidor de desarrollo de React como JSON Server.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Terminal 1 - Iniciar JSON Server
+```bash
+npm run server
+```
+Esto iniciará JSON Server en http://localhost:3001
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Terminal 2 - Iniciar React
+```bash
+npm start
+```
+Esto iniciará la aplicación en http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Estructura del Proyecto
 
-### `npm run eject`
+```
+src/
+├── api/
+│   └── api.js                 # Configuración de Axios
+├── components/
+│   ├── AddProduct.js          # Formulario de alta
+│   ├── NavBar.js              # Barra de navegación
+│   ├── ProductDetail.js       # Vista de detalle y edición
+│   └── ProductList.js         # Lista de productos con filtros
+├── store/
+│   ├── actions/
+│   │   ├── productActions.js  # Acciones de Redux
+│   │   └── types.js           # Tipos de acciones
+│   ├── reducers/
+│   │   └── productReducer.js  # Reducer de productos
+│   └── store.js               # Configuración del store
+├── App.js                     # Rutas de la aplicación
+└── index.js                   # Punto de entrada
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Modelo de Datos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Producto
+- `id`: Identificador único
+- `name`: Nombre del producto
+- `category`: Categoría (ej: laptop, celular, etc.)
+- `price`: Precio (debe ser mayor a 0)
+- `stock`: Stock disponible (no puede ser negativo)
+- `description`: Descripción del producto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Rutas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `/` - Lista de productos principal
+- `/add-product` - Formulario para agregar nuevo producto
+- `/products/:id` - Detalle y edición de producto
 
-## Learn More
+## JSON Server Endpoints
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `GET /products` - Listar todos los productos
+- `POST /products` - Agregar nuevo producto
+- `PUT /products/:id` - Actualizar producto
+- `DELETE /products/:id` - Eliminar producto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Scripts Disponibles
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `npm start` - Inicia la aplicación en modo desarrollo
+- `npm run server` - Inicia JSON Server
+- `npm test` - Ejecuta tests
+- `npm run build` - Construye para producción
